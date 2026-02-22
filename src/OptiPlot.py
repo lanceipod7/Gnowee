@@ -34,11 +34,11 @@ def plot_vars(data, lowBounds=[], upBounds=[], title=[], label=[]):
     @param data: <em> list of event objects </em> \n
         Contain the optimization history in event objects within the data
         list. \n
-    @param lowBounds: \e array \n
+    @param lowBounds: \\e array \n
         The lower bounds of the design variable(s). \n
-    @param upBounds: \e array \n
+    @param upBounds: \\e array \n
         The upper bounds of the design variable(s). \n
-    @param title: \e string \n
+    @param title: \\e string \n
         Title for plot. \n
     @param label: list \n
         List of names of design variables. \n
@@ -53,7 +53,7 @@ def plot_vars(data, lowBounds=[], upBounds=[], title=[], label=[]):
     if label == []:
         label.append('\\textbf{Fitness}')
         for i in range(2, len(data[0].design), 1):
-            label.append('\\textbf{Var\#}' + str(i-1))
+            label.append('\\textbf{Var\\#}' + str(i-1))
     if title == []:
         title = "Optimization Results for Each Design Variable"
 
@@ -117,11 +117,11 @@ def plot_hist(data, title='', xLabel=''):
     an optimization algorithm.  Can be used to understand the convergence of
     the algorithm.
 
-    @param data: \e list \n
+    @param data: \\e list \n
         Contains the number of function evals for each optimization run.
-    @param title: \e string \n
+    @param title: \\e string \n
         Title for plot. \n
-    @param xLabel: \e string \n
+    @param xLabel: \\e string \n
         Label for independent variable. \n
     """
 
@@ -160,17 +160,17 @@ def plot_hist_comp(data, data2, dataLabels, title='', xLabel=''):
     @ingroup OptiPlot
     Histograms and plots the comparison of two sets of function evaluation data.
 
-    @param data: \e list \n
+    @param data: \\e list \n
         Contains the number of function evals for each optimization run. \n
-    @param data2: \e list \n
+    @param data2: \\e list \n
         Contains the number of function evals for each optimization run for a
         second set of runs. \n
-    @param dataLabels: \e list \n
+    @param dataLabels: \\e list \n
         Contains the legend label names for each data set. \n
 
-    @param title: \e string \n
+    @param title: \\e string \n
         Title for plot. \n
-    @param xLabel: \e string \n
+    @param xLabel: \\e string \n
         Label for independent variable. \n
     """
 
@@ -227,7 +227,7 @@ def plot_feval_hist(data=[], listData=[], label=[]):
     @param listData: <em> list of lists or arrays </em> \n
         Contains a list of function eval histories. Columns are:
         [function evals, fitness, number of datapoints]. \n
-    @param label: \e list \n
+    @param label: \\e list \n
         List of names corresponding to the data sets provided. \n
     """
 
@@ -267,7 +267,7 @@ def plot_feval_hist(data=[], listData=[], label=[]):
     # Format plot
     ax.set_title('\\textbf{Average Deviation from Optimal Fitness}',
                  fontsize=18, y=1.04)
-    ax.set_ylabel('\\textbf{\% Difference from Optimal Fitness}',
+    ax.set_ylabel('\\textbf{\\% Difference from Optimal Fitness}',
                   fontsize=18, x=-0.04)
     ax.yaxis.set_major_formatter(majorFormatter)
     if all(y) > 0:
@@ -288,14 +288,14 @@ def plot_tlf(alpha=1.5, gamma=1., numSamp=1E7, cutPoint=10.):
     @ingroup OptiPlot
     Plots a comparison of the TLF to the Levy distribution.
 
-    @param alpha: \e float \n
+    @param alpha: \\e float \n
         Levy exponent - defines the index of the distribution and controls
         scale properties of the stochastic process.
-    @param gamma: \e float \n
+    @param gamma: \\e float \n
         Gamma - Scale unit of process for Levy flights. \n
-    @param numSamp: \e integer \n
+    @param numSamp: \\e integer \n
         Number of Levy flights to sample. \n
-    @param cutPoint: \e float \n
+    @param cutPoint: \\e float \n
         Point at which to cut sampled Levy values and resample. \n
     """
 
@@ -341,14 +341,14 @@ def plot_optimization(data, label, title='', xLabel=''):
     Plots the results of optimization process for a given algorithm and
     parameter.
 
-    @param data: \e array \n
+    @param data: \\e array \n
         Contains the function eval history. Columns are: [function evals,
         fitness, number of datapoints]
-    @param label: \e list \n
+    @param label: \\e list \n
         List of names of the problem types ran. \n
-    @param title: \e string \n
+    @param title: \\e string \n
         Title for plot. \n
-    @param xLabel: \e string \n
+    @param xLabel: \\e string \n
         Title for x-axis. \n
     """
 

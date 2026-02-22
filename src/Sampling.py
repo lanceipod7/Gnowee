@@ -41,17 +41,17 @@ def initial_samples(lb, ub, method, numSamp):
     available are 'random', 'nolh', 'nolh-rp', 'nolh-cdr', 'lhc', or
     'rand-wor'.
 
-    @param lb: \e array \n
+    @param lb: \\e array \n
         The lower bounds of the design variable(s). \n
-    @param ub: \e array \n
+    @param ub: \\e array \n
         The upper bounds of the design variable(s). \n
-    @param  method: \e string \n
+    @param  method: \\e string \n
         String representing the chosen sampling method. Valid options are:
         'random', 'nolh', 'nolh-rp', 'nolh-cdr', 'lhc', 'random-wor'. \n
-    @param numSamp: \e integer \n
+    @param numSamp: \\e integer \n
         The number of samples to be generated.  Ignored for nolh algorithms. \n
 
-    @return \e array: The list of coordinates for the sampled phase space. \n
+    @return \\e array: The list of coordinates for the sampled phase space. \n
     """
 
     assert len(lb) == len(ub), ('Lower and upper bounds have different #s '
@@ -129,8 +129,8 @@ def initial_samples(lb, ub, method, numSamp):
             break
 
         if case():
-            print "Somehow you evaded my assert statement - good job!", \
-                  " However, you still need to use a valid method string."
+            print("Somehow you evaded my assert statement - good job!"
+                  " However, you still need to use a valid method string.")
 
     return s
 
@@ -143,7 +143,7 @@ def plot_samples(s):
     the full hyperspace yet.  Produces a very simple plot for visualizing the
     difference in the sampling methods.
 
-    @param s: \e array \n
+    @param s: \\e array \n
         The list of coordinates for the sampled phase space. \n
     """
 
@@ -166,26 +166,26 @@ def levy(nc, nr=0, alpha=1.5, gam=1, n=1):
 
     Sample the Levy distribution given by
 
-    \f$ L_{\alpha,\gamma}(z)=\frac{1}{\pi}\int \limits_{0}^{+\infty}
-        e^{-\gamma q^{\alpha}} \cos(qz) dq \f$
+    \f$ L_{\\alpha,\\gamma}(z)=\\frac{1}{\\pi}\\int \\limits_{0}^{+\\infty}
+        e^{-\\gamma q^{\\alpha}} \\cos(qz) dq \\f$
 
     using the Mantegna algoritm outlined in "Fast, Accurate Algorithm for
     Numerical Simulation of Levy Stable Stochastic Processes."
 
-    @param nc: \e integer \n
+    @param nc: \\e integer \n
         The number of columns of Levy values for the return array.
-    @param nr \e integer \n
+    @param nr \\e integer \n
         The number of rows of Levy values for the return array. \n
-    @param alpha \e float \n
+    @param alpha \\e float \n
         Levy exponent - defines the index of the distribution and controls
         scale properties of the stochastic process. \n
-    @param gam: \e float \n
+    @param gam: \\e float \n
         Gamma - Scale unit of process for Levy flights. \n
-    @param n: \e integer \n
+    @param n: \\e integer \n
         Number of independent variables - can be used to reduce Levy
         flight sampling variance. \n
 
-    @return \e array:  Array representing the levy flights for each nest.
+    @return \\e array:  Array representing the levy flights for each nest.
     """
 
     assert alpha > 0.3 and alpha < 1.99, 'Valid range for alpha is [0.3:1.99].'
@@ -232,19 +232,19 @@ def tlf(numRow=1, numCol=1, alpha=1.5, gam=1., cutPoint=10.):
     The Truncated Levy Flight" to map a levy distribution onto the interval
     [0,1].
 
-    @param numRow: \e integer \n
+    @param numRow: \\e integer \n
         Number of rows of Levy flights to sample. \n
-    @param numCol: \e integer \n
+    @param numCol: \\e integer \n
         Number of columns of Levy flights to sample. \n
-    @param alpha: \e float \n
+    @param alpha: \\e float \n
         Levy exponent - defines the index of the distribution and controls
         scale properties of the stochastic process. \n
-    @param gam: \e float \n
+    @param gam: \\e float \n
         Gamma - Scale unit of process for Levy flights. \n
-    @param cutPoint: \e float \n
+    @param cutPoint: \\e float \n
         Point at which to cut sampled Levy values and resample. \n
 
-    @return \e array: Array representing the levy flights on the interval
+    @return \\e array: Array representing the levy flights on the interval
         (0,1). \n
     """
 
@@ -284,13 +284,13 @@ def NOLH(conf, remove=None):
     The whole library is incorporated here with minimal modification for
     commonality and consolidation of methods.
 
-    @param conf: \e array \n
+    @param conf: \\e array \n
         Configuration vector. \n
-    @param remove: \e array \n
+    @param remove: \\e array \n
         Array containing the indexes of the colummns to be removed from conf
         vector. \n
 
-    @return \e array: Array containing nearly orthogonal latin hypercube
+    @return \\e array: Array containing nearly orthogonal latin hypercube
          sampling. \n
     """
 
@@ -364,7 +364,7 @@ def params(dim):
     Returns the NOLH order $m$, the required configuration length $q$
     and the number of columns to remove to obtain the desired dimensionality.
 
-    @param dim: \e integer \n
+    @param dim: \\e integer \n
         The dimension of the space. \n
     """
     m = 3
@@ -375,7 +375,7 @@ def params(dim):
 
     while s < dim:
         m += 1
-        s = m + math.factorial(m - 1) / (2 * math.factorial(m - 3))
+        s = m + math.factorial(m - 1) // (2 * math.factorial(m - 3))
         q = 2**(m-1)
 
     return m, q, s - dim
@@ -387,11 +387,11 @@ def get_cdr_permutations(dim):
 
     Generate a set of CDR permulations for NOLH.
 
-    @param dim: \e integer \n
+    @param dim: \\e integer \n
         The dimension of the space. \n
 
-    @return \e array: A configuration vector. \n
-    @return \e array: Array containing the indexes of the colummns to be
+    @return \\e array: A configuration vector. \n
+    @return \\e array: Array containing the indexes of the colummns to be
         removed from conf vector. \n
     """
 
@@ -546,7 +546,7 @@ class WeightedRandomGenerator(object):
 
         @param self: <em> pointer </em> \n
             The WeightedRandomGenerator pointer. \n
-        @param weights: \e array \n
+        @param weights: \\e array \n
             The array of weights (Higher = more likely to be selected) \n
         """
 
@@ -567,7 +567,7 @@ class WeightedRandomGenerator(object):
         @param self: <em> pointer </em> \n
             The WeightedRandomGenerator pointer. \n
 
-        @return \e integer: The randomly selected index of the weights array. \n
+        @return \\e integer: The randomly selected index of the weights array. \n
         """
         rnd = rand() * self.totals[-1]
         return bisect.bisect_right(self.totals, rnd)
@@ -579,6 +579,6 @@ class WeightedRandomGenerator(object):
         @param self: <em> pointer </em> \n
             The WeightedRandomGenerator pointer. \n
 
-        @return \e integer: The randomly selected index of the weights array. \n
+        @return \\e integer: The randomly selected index of the weights array. \n
         """
         return self.next()

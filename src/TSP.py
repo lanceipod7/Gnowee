@@ -38,22 +38,22 @@ class TSP(object):
 
         @param self: <em> TSP pointer </em> \n
             The TSP pointer. \n
-        @param name: \e string \n
+        @param name: \\e string \n
             The name of the TSPLIB problem. \n
-        @param dimension: \e integer \n
+        @param dimension: \\e integer \n
             The number of nodes (cities) in the problem. \n
         @param nodes: <em> list of lists </em> \n
             The coorinate pairs for each node.
-        @param optimum: \e float \n
+        @param optimum: \\e float \n
             The optimal solution. \n
         """
 
         ## @var name
-        # \e string: The name of the TSPLIB problem.
+        # \\e string: The name of the TSPLIB problem.
         self.name = name
 
         ## @var dimension
-        # \e integer: The number of nodes (cities) in the problem.
+        # \\e integer: The number of nodes (cities) in the problem.
         self.dimension = dimension
 
         ## @var nodes
@@ -61,14 +61,14 @@ class TSP(object):
         self.nodes = nodes
 
         ## @var optimum
-        # \e float:  The optimal solution.
+        # \\e float:  The optimal solution.
         self.optimum = optimum
 
     def __repr__(self):
         """!
         TSP class param print function.
 
-        @param self: \e TSP pointer \n
+        @param self: \\e TSP pointer \n
             The TSP pointer. \n
         """
         return "TSP Definition({}, {}, {})".format(self.name, self.dimension,
@@ -78,7 +78,7 @@ class TSP(object):
         """!
         Human readable TSP print function.
 
-        @param self: \e TSP pointer \n
+        @param self: \\e TSP pointer \n
             The TSP pointer. \n
         """
 
@@ -95,7 +95,7 @@ class TSP(object):
         Read the starting TSP points from a TSPLIB standard file and populate
         class attributes.
 
-        @param filename: \e string \n
+        @param filename: \\e string \n
             Path and filename of the tsp problem. \n
         """
 
