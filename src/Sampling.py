@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from scipy.special import gamma
-from pyDOE import lhs
+from pyDOE3 import lhs
 from numpy.random import rand, randn, choice
 from GnoweeUtilities import Switch
 
