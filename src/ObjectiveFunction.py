@@ -78,7 +78,12 @@ class ObjectiveFunction(object):
                            'shifted_rastrigin': self.shifted_rastrigin,
                            'rosenbrock': self.rosenbrock,
                            'shifted_rosenbrock': self.shifted_rosenbrock,
-                           'tsp': self.tsp}
+                           'tsp': self.tsp,
+                           'schaffer_n1': self.schaffer_n1,
+                           'kursawe': self.kursawe,
+                           'zdt1': self.zdt1,
+                           'zdt2': self.zdt2,
+                           'zdt3': self.zdt3}
 
         ## @var func
         # <em> function handle: </em> The function handle for the
@@ -757,6 +762,120 @@ class ObjectiveFunction(object):
         fitness = fitness+round(sqrt((u[0][0]-u[-1][0])**2 \
                                        +(u[0][1]-u[-1][1])**2))
         return fitness
+
+    def schaffer_n1(self, u):
+        """!
+        Schaffer N1 multi-objective benchmark function (2 objectives, 1 var).
+
+        Pareto-optimal front: x in [0, 2], giving f1=x^2, f2=(x-2)^2.
+
+        Reference: Schaffer, "Multiple Objective Optimization with Vector
+        Evaluated Genetic Algorithms," 1985.
+
+        @param self: <em> pointer </em> \n
+            The ObjectiveFunction pointer. \n
+        @param u: \\e array \n
+            Single design variable x. \n
+
+        @return \\e list: [f1, f2] objective values. \n
+        """
+        assert len(u) == 1, 'Schaffer N1 requires exactly 1 variable.'
+        x = u[0]
+        f1 = x ** 2
+        f2 = (x - 2.0) ** 2
+        return [f1, f2]
+
+    def kursawe(self, u):
+        """!
+        Kursawe multi-objective benchmark function (2 objectives, 3 vars).
+
+        Pareto-optimal front is non-convex and disconnected.
+
+        Reference: Kursawe, "A Variant of Evolution Strategies for Vector
+        Optimization," 1991.
+
+        @param self: <em> pointer </em> \n
+            The ObjectiveFunction pointer. \n
+        @param u: \\e array \n
+            Three design variables, each in [-5, 5]. \n
+
+        @return \\e list: [f1, f2] objective values. \n
+        """
+        assert len(u) == 3, 'Kursawe benchmark requires exactly 3 variables.'
+        f1 = sum(-10.0 * exp(-0.2 * sqrt(u[i] ** 2 + u[i + 1] ** 2))
+                 for i in range(2))
+        f2 = sum(abs(u[i]) ** 0.8 + 5.0 * np.sin(u[i] ** 3)
+                 for i in range(3))
+        return [f1, f2]
+
+    def zdt1(self, u):
+        """!
+        ZDT1 multi-objective benchmark function (2 objectives, n vars).
+
+        Pareto-optimal front: convex, g(x)=1, f1 in [0,1].
+
+        Reference: Zitzler, Deb, Thiele, "Comparison of Multiobjective
+        Evolutionary Algorithms: Empirical Results," 2000.
+
+        @param self: <em> pointer </em> \n
+            The ObjectiveFunction pointer. \n
+        @param u: \\e array \n
+            n design variables in [0, 1]. Typically n=30. \n
+
+        @return \\e list: [f1, f2] objective values. \n
+        """
+        assert len(u) >= 2, 'ZDT1 requires at least 2 variables.'
+        f1 = u[0]
+        g = 1.0 + 9.0 * sum(u[1:]) / (len(u) - 1)
+        h = 1.0 - sqrt(f1 / g)
+        f2 = g * h
+        return [f1, f2]
+
+    def zdt2(self, u):
+        """!
+        ZDT2 multi-objective benchmark function (2 objectives, n vars).
+
+        Pareto-optimal front: non-convex, g(x)=1, f1 in [0,1].
+
+        Reference: Zitzler, Deb, Thiele, "Comparison of Multiobjective
+        Evolutionary Algorithms: Empirical Results," 2000.
+
+        @param self: <em> pointer </em> \n
+            The ObjectiveFunction pointer. \n
+        @param u: \\e array \n
+            n design variables in [0, 1]. Typically n=30. \n
+
+        @return \\e list: [f1, f2] objective values. \n
+        """
+        assert len(u) >= 2, 'ZDT2 requires at least 2 variables.'
+        f1 = u[0]
+        g = 1.0 + 9.0 * sum(u[1:]) / (len(u) - 1)
+        h = 1.0 - (f1 / g) ** 2
+        f2 = g * h
+        return [f1, f2]
+
+    def zdt3(self, u):
+        """!
+        ZDT3 multi-objective benchmark function (2 objectives, n vars).
+
+        Pareto-optimal front: disconnected, g(x)=1, f1 in [0,1].
+
+        Reference: Zitzler, Deb, Thiele, "Comparison of Multiobjective
+        Evolutionary Algorithms: Empirical Results," 2000.
+
+        @param self: <em> pointer </em> \n
+            The ObjectiveFunction pointer. \n
+        @param u: \\e array \n
+            n design variables in [0, 1]. Typically n=30. \n
+
+        @return \\e list: [f1, f2] objective values. \n
+        """
+        assert len(u) >= 2, 'ZDT3 requires at least 2 variables.'
+        f1 = u[0]
+        g = 1.0 + 9.0 * sum(u[1:]) / (len(u) - 1)
+        h = 1.0 - sqrt(f1 / g) - (f1 / g) * np.sin(10.0 * pi * f1)
+        f2 = g * h
+        return [f1, f2]
 
 #-----------------------------------------------------------------------------#
 def prod(iterable):
