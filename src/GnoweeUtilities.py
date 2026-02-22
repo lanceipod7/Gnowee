@@ -36,33 +36,33 @@ class Parent(object):
 
         @param self: <em> Parent pointer </em> \n
             The Parent pointer. \n
-        @param variables: \e array \n
+        @param variables: \\e array \n
             The set of variables representing a design solution. \n
-        @param fitness: \e float \n
+        @param fitness: \\e float \n
             The assessed fitness for the current set of variables. \n
-        @param changeCount: \e integer \n
+        @param changeCount: \\e integer \n
             The number of improvements to the current population member. \n
-        @param stallCount: \e integer \n
+        @param stallCount: \\e integer \n
             The number of evaluations since the last improvement. \n
         """
 
         ## @var variables
-        # \e array:
+        # \\e array:
         # The set of variables representing a design solution.
         self.variables = variables
 
         ## @var fitness
-        # \e float:
+        # \\e float:
         # The assessed fitness for the current set of variables.
         self.fitness = fitness
 
         ## @var changeCount
-        # \e integer:
+        # \\e integer:
         # The number of improvements to the current population member.
         self.changeCount = changeCount
 
         ## @var stallCount
-        # \e integer:
+        # \\e integer:
         # he number of evaluations since the last improvement.
         self.stallCount = stallCount
 
@@ -106,33 +106,33 @@ class Event(object):
 
         @param self: <em> Event pointer </em> \n
             The Event pointer. \n
-        @param generation: \e integer \n
+        @param generation: \\e integer \n
             The generation the design was arrived at. \n
-        @param evaluations: \e integer \n
+        @param evaluations: \\e integer \n
             The number of fitness evaluations done to obtain this design. \n
-        @param fitness: \e float \n
+        @param fitness: \\e float \n
             The assessed fitness for the current set of variables. \n
-        @param design: \e array \n
+        @param design: \\e array \n
             The set of variables representing a design solution. \n
         """
 
         ## @var generation
-        # \e integer:
+        # \\e integer:
         # The generation the design was arrived at.
         self.generation = generation
 
         ## @var evaluations
-        # \e integer:
+        # \\e integer:
         # The number of fitness evaluations done to obtain this design.
         self.evaluations = evaluations
 
         ## @var fitness
-        # \e float:
+        # \\e float:
         # The assessed fitness for the current set of variables.
         self.fitness = fitness
 
         ## @var design
-        # \e array:
+        # \\e array:
         # The set of variables representing a design solution.
         self.design = design
 
@@ -197,11 +197,11 @@ class ProblemParameters(object):
             The constraints on the problem. Zero constraints can be specified
             as an empty list ([]), or multiple constraints can be specified
             as a list of Constraint objects. \n
-        @param lowerBounds: \e array \n
+        @param lowerBounds: \\e array \n
             The lower bounds of the design variable(s). Only enter the bounds
             for continuous and integer/binary variables. The order must match
             the order specified in varType and ub. \n
-        @param upperBounds: \e array \n
+        @param upperBounds: \\e array \n
             The upper bounds of the design variable(s). Only enter the bounds
             for continuous and integer/binary variables. The order must match
             the order specified in varType and lb. \n
@@ -241,14 +241,14 @@ class ProblemParameters(object):
             could be placed at position 2, 3, 4, or 5. The discreteVals would be
             specified as (assuming no other discretes): \n
             discreteVals = [[2, 3, 4, 5], [2, 3, 4, 5], [2, 3, 4, 5],
-            [2, 3, 4, 5]] \ n
+            [2, 3, 4, 5]] \n
             Gnowee will then map the optimization results to these allowed
             values. \n
-        @param optimum: \e float \n
+        @param optimum: \\e float \n
             The global optimal solution. \n
-        @param pltTitle: \e string \n
+        @param pltTitle: \\e string \n
             The title used for plotting the results of the optimization. \n
-        @param histTitle: \e string \n
+        @param histTitle: \\e string \n
             The plot title for the histogram of the optimization results. \n
         @param varNames: <em> list of strings </em>
             The names of the variables for the optimization problem. \n
@@ -268,34 +268,34 @@ class ProblemParameters(object):
             self.constraints = constraints
 
         ## @var lb
-        # \e array: The lower bounds of the design variable(s).
+        # \\e array: The lower bounds of the design variable(s).
         self.lb = lowerBounds
 
         ## @var ub
-        # \e array: The upper bounds of the design variable(s).
+        # \\e array: The upper bounds of the design variable(s).
         self.ub = upperBounds
 
         ## @var varType
-        # \e array: The type of variable for each position in the upper and
+        # \\e array: The type of variable for each position in the upper and
         # lower bounds array.
         self.varType = varType
 
         ## @var discreteVals
-        #\e array: nxm with n=# of discrete variables and m=# of values that
+        #\\e array: nxm with n=# of discrete variables and m=# of values that
         # can be taken for each variable.
         self.discreteVals = discreteVals
 
         ## @var optimum
-        # \e float: The global optimal solution.
+        # \\e float: The global optimal solution.
         self.optimum = optimum
 
         ## @var pltTitle
-        # \e string: The title used for plotting the results of the
+        # \\e string: The title used for plotting the results of the
         # optimization.
         self.pltTitle = pltTitle
 
         ## @var histTitle
-        # \e string: The plot title for the histogram of the optimization
+        # \\e string: The plot title for the histogram of the optimization
         # results.
         self.histTitle = histTitle
 
@@ -312,25 +312,25 @@ class ProblemParameters(object):
             self.sanitize_inputs()
 
             ## @var cID:
-            # \e array: The continuous variable truth array. This contains
+            # \\e array: The continuous variable truth array. This contains
             # a one in the positions corresponding to continuous variables
             # and 0 otherwise.
             self.cID = []
 
             ## @var iID:
-            # \e array: The integer variable truth array. This contains
+            # \\e array: The integer variable truth array. This contains
             # a one in the positions corresponding to continuous variables
             # and 0 otherwise.
             self.iID = []
 
             ## @var dID:
-            # \e array: The discrete variable truth array. This contains
+            # \\e array: The discrete variable truth array. This contains
             # a one in the positions corresponding to continuous variables
             # and 0 otherwise.
             self.dID = []
 
             ## @var xID:
-            # \e array: The combinatorial variable truth array. This contains
+            # \\e array: The combinatorial variable truth array. This contains
             # a one in the positions corresponding to continuous variables
             # and 0 otherwise.
             self.xID = []
@@ -376,7 +376,7 @@ class ProblemParameters(object):
         """!
         Human readable ProblemParameters print function.
 
-        @param self: \e pointer \n
+        @param self: \\e pointer \n
             The ProblemParameters pointer. \n
         """
 
@@ -409,7 +409,7 @@ class ProblemParameters(object):
         Checks and cleans user inputs to be compatible with expectations from
         the Gnowee algorithm.
 
-        @param self: \e pointer \n
+        @param self: \\e pointer \n
             The ProblemParameters pointer. \n
         """
 
@@ -462,13 +462,13 @@ class ProblemParameters(object):
         Maps the sampled discrete indices to the array of allowable discrete
         values and returns the associated variable array.
 
-        @param self: \e pointer \n
+        @param self: \\e pointer \n
             The ProblemParameters pointer. \n
             The Parent pointer. \n
-        @param variables: \e array \n
+        @param variables: \\e array \n
             The set of variables representing a design solution. \n
 
-        @return \e array: An array containing the variables associated with
+        @return \\e array: An array containing the variables associated with
             the design.
         """
 
@@ -492,13 +492,13 @@ class ProblemParameters(object):
         """!
         Maps the discrete values to indices for sampling.
 
-        @param self: \e pointer \n
+        @param self: \\e pointer \n
             The ProblemParameters pointer. \n
             The Parent pointer. \n
-        @param variables: \e array \n
+        @param variables: \\e array \n
             The set of variables representing a design solution. \n
 
-        @return \e array: An array containing the variables associated with
+        @return \\e array: An array containing the variables associated with
             the design.
         """
 
@@ -522,13 +522,13 @@ class ProblemParameters(object):
         Instantiates a ProblemParameters object and populations member
         variables from a set of predefined problem types.
 
-        @param self: \e pointer \n
+        @param self: \\e pointer \n
             The ProblemParameters pointer. \n
-        @param funct: \e string \n
+        @param funct: \\e string \n
             Name of function being optimized. \n
-        @param algorithm: \e string \n
+        @param algorithm: \\e string \n
             Name of optimization program used. \n
-        @param dimension: \e integer \n
+        @param dimension: \\e integer \n
             Used to set the dimension for scalable problems. \n
         """
 
@@ -556,7 +556,7 @@ class ProblemParameters(object):
                                  ('\\textbf{Function Evaluations for Spring '
                                   'Optimization using %s}' %algorithm),
                                  ['\\textbf{Fitness}', '\\textbf{Spring Diam}',
-                                  '\\textbf{\# Coils}', '\\textbf{Wire Diam}'])
+                                  '\\textbf{\\# Coils}', '\\textbf{Wire Diam}'])
                 break
             if case('spring'):
                 ProblemParameters.__init__(self, ObjectiveFunction('spring'),
@@ -669,7 +669,7 @@ class ProblemParameters(object):
                                   ('\\textbf{Function Evaluations for De Jong '
                                    'Function Optimization using %s}'
                                    %algorithm),
-                                  ['\\textbf{Fitness}']+['\\textbf{Dim \#%s}' \
+                                  ['\\textbf{Fitness}']+['\\textbf{Dim \\#%s}' \
                                    %i for i in range(dimension)])
                 break
             if case('shifted_dejong'):
@@ -682,7 +682,7 @@ class ProblemParameters(object):
                                   ('\\textbf{Function Evaluations for Shifted '
                                    'De Jong Function Optimization using %s}'
                                    %algorithm),
-                                  ['\\textbf{Fitness}']+['\\textbf{Dim \#%s}' \
+                                  ['\\textbf{Fitness}']+['\\textbf{Dim \\#%s}' \
                                    %i for i in range(dimension)])
                 break
             if case('ackley'):
@@ -695,7 +695,7 @@ class ProblemParameters(object):
                                   ('\\textbf{Function Evaluations for Ackley '
                                    'Function Optimization using %s}'
                                    %algorithm),
-                                  ['\\textbf{Fitness}']+['\\textbf{Dim \#%s}' \
+                                  ['\\textbf{Fitness}']+['\\textbf{Dim \\#%s}' \
                                     %i for i in range(dimension)])
                 break
             if case('shifted_ackley'):
@@ -708,7 +708,7 @@ class ProblemParameters(object):
                                   ('\\textbf{Function Evaluations for Shifted '
                                    'Ackley Function Optimization using %s}'
                                    %algorithm),
-                                  ['\\textbf{Fitness}']+['\\textbf{Dim \#%s}' \
+                                  ['\\textbf{Fitness}']+['\\textbf{Dim \\#%s}' \
                                    %i for i in range(dimension)])
                 break
             if case('easom'):
@@ -746,7 +746,7 @@ class ProblemParameters(object):
                                   ('\\textbf{Function Evaluations for Griewank '
                                    'Function Optimization using %s}'
                                    %algorithm),
-                                  ['\\textbf{Fitness}']+['\\textbf{Dim \#%s}' \
+                                  ['\\textbf{Fitness}']+['\\textbf{Dim \\#%s}' \
                                    %i for i in range(dimension)])
                 break
             if case('shifted_griewank'):
@@ -759,7 +759,7 @@ class ProblemParameters(object):
                                   ('\\textbf{Function Evaluations for Shifted '
                                    'Easom Function Optimization using %s}'
                                    %algorithm,
-                                  ['\\textbf{Fitness}']+['\\textbf{Dim \#%s}' \
+                                  ['\\textbf{Fitness}']+['\\textbf{Dim \\#%s}' \
                                    %i for i in range(dimension)]))
                 break
             if case('rastrigin'):
@@ -771,7 +771,7 @@ class ProblemParameters(object):
                                   ('\\textbf{Function Evaluations for '
                                    'Rastrigin Function Optimization using %s}'
                                    %algorithm),
-                                  ['\\textbf{Fitness}']+['\\textbf{Dim \#%s}' \
+                                  ['\\textbf{Fitness}']+['\\textbf{Dim \\#%s}' \
                                    %i for i in range(dimension)])
                 break
             if case('shifted_rastrigin'):
@@ -784,7 +784,7 @@ class ProblemParameters(object):
                                   ('\\textbf{Function Evaluations for Shifted '
                                    'Rastrigin Function Optimization using %s}'
                                    %algorithm),
-                                  ['\\textbf{Fitness}']+['\\textbf{Dim \#%s}' \
+                                  ['\\textbf{Fitness}']+['\\textbf{Dim \\#%s}' \
                                    %i for i in range(dimension)])
                 break
             if case('rosenbrock'):
@@ -797,7 +797,7 @@ class ProblemParameters(object):
                                   ('\\textbf{Function Evaluations for '
                                    'Rosenbrock Function Optimization using '
                                    '%s}' %algorithm),
-                                  ['\\textbf{Fitness}']+['\\textbf{Dim \#%s}' \
+                                  ['\\textbf{Fitness}']+['\\textbf{Dim \\#%s}' \
                                     %i for i in range(dimension)])
                 break
             if case('shifted_rosenbrock'):
@@ -810,7 +810,7 @@ class ProblemParameters(object):
                                   ('\\textbf{Function Evaluations for Shifted '
                                    'Rosenbrock Function Optimization using %s}'\
                                    %algorithm),
-                                  ['\\textbf{Fitness}']+['\\textbf{Dim \#%s}' \
+                                  ['\\textbf{Fitness}']+['\\textbf{Dim \\#%s}' \
                                    %i for i in range(dimension)])
                 break
             if case('tsp'):
@@ -839,16 +839,16 @@ class Switch(object):
 
         @param self: <em> pointer </em> \n
             The Switch pointer. \n
-        @param value: \e string \n
+        @param value: \\e string \n
             Case selector value. \n
         """
 
         ## @var value
-        # \e string: Case selector value.
+        # \\e string: Case selector value.
         self.value = value
 
         ## @var fall
-        # \e boolean: Match indicator.
+        # \\e boolean: Match indicator.
         self.fall = False
 
     def __iter__(self):
@@ -859,7 +859,7 @@ class Switch(object):
             The Switch pointer. \n
         """
         yield self.match
-        raise StopIteration
+        return
 
     def match(self, *args):
         """!
@@ -867,10 +867,10 @@ class Switch(object):
 
         @param self: <em> pointer </em> \n
             The Switch pointer. \n
-        @param *args: \e list \n
+        @param *args: \\e list \n
             List of comparisons. \n
 
-        @return \e boolean: Outcome of comparison match
+        @return \\e boolean: Outcome of comparison match
         """
         if self.fall or not args:
             return True

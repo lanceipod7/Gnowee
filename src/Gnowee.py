@@ -70,7 +70,7 @@ def main(gh):
         An object constaining the problem definition and the settings and
         methods required for the Gnowee optimization algorithm. \n
 
-    @return \e list: List for design event objects for the current top solution
+    @return \\e list: List for design event objects for the current top solution
         vs generation. Only stores the information when new optimal designs are
         found. \n
     """
@@ -205,33 +205,33 @@ def main(gh):
             if timeline[-1].evaluations > \
                timeline[-2].evaluations+gh.stallLimit:
                 converge = True
-                print "Stall at evaluation #{}".format(
-                    timeline[-1].evaluations)
+                print("Stall at evaluation #{}".format(
+                    timeline[-1].evaluations))
         if timeline[-1].generation > gh.maxGens:
             converge = True
-            print "Max generations reached."
+            print("Max generations reached.")
         if timeline[-1].evaluations > gh.maxFevals:
             converge = True
-            print "Max function evaluations reached."
+            print("Max function evaluations reached.")
 
         # Test fitness convergence
         if gh.optimum == 0.0:
             if timeline[-1].fitness < gh.optConvTol:
                 converge = True
-                print "Fitness Convergence"
+                print("Fitness Convergence")
         elif abs((timeline[-1].fitness-gh.optimum)/gh.optimum) \
               <= gh.optConvTol:
             converge = True
-            print "Fitness Convergence"
+            print("Fitness Convergence")
         elif timeline[-1].fitness < gh.optimum:
             converge = True
-            print "Fitness Convergence"
+            print("Fitness Convergence")
 
         # Update Timeline
         timeline[-1].generation += 1
 
     #Determine execution time
-    print "Program execution time was {}.".format(time.time() - startTime)
+    print("Program execution time was {}.".format(time.time() - startTime))
     return timeline
 
 if __name__ == '__main__':

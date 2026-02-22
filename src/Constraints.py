@@ -33,11 +33,11 @@ class Constraint(object):
 
         @param self: <em> object pointer </em> \n
             The object pointer. \n
-        @param method: \e string \n
+        @param method: \\e string \n
             The name of the constraint function to evaluate. \n
-        @param constraint: \e float \n
+        @param constraint: \\e float \n
             The constraint to be compared against. \n
-        @param penalty: \e float \n
+        @param penalty: \\e float \n
             The penalty to be applied if a constraint is violated.  1E15
             is recommended. \n
         """
@@ -68,11 +68,11 @@ class Constraint(object):
             self.func = method
 
         ## @var constraint
-        # \e float: The constraint to be enforced.
+        # \\e float: The constraint to be enforced.
         self.constraint = constraint
 
         ## @var penalty
-        # \e float: The penalty to be applied if the constraint
+        # \\e float: The penalty to be applied if the constraint
         # is violated
         self.penalty = penalty
 
@@ -80,7 +80,7 @@ class Constraint(object):
         """!
         Constraint class param print function.
 
-        @param self: \e pointer \n
+        @param self: \\e pointer \n
             The Constraint pointer. \n
         """
         return "Constraint({}, {}, {})".format(self.func.__name__,
@@ -91,7 +91,7 @@ class Constraint(object):
         """!
         Human readable Constraint print function.
 
-        @param self: \e pointer \n
+        @param self: \\e pointer \n
             The Constraint pointer. \n
         """
 
@@ -105,9 +105,9 @@ class Constraint(object):
         """!
         Converts an input string name for a function to a function handle.
 
-        @param self: \e pointer \n
+        @param self: \\e pointer \n
             The Constraint pointer. \n
-        @param funcName \e string \n
+        @param funcName \\e string \n
              A string identifying the constraint function to be used. \n
         """
         if hasattr(funcName, '__call__'):
@@ -125,13 +125,13 @@ class Constraint(object):
         """!
         Calculate the constraint violation penalty, if any.
 
-        @param self: \e pointer \n
+        @param self: \\e pointer \n
             The Constraint pointer. \n
-        @param violation \e float \n
+        @param violation \\e float \n
              The magnitude of the constraint violation used for scaling the
              penalty. \n
 
-        @return \e float: The scaled penalty. \n
+        @return \\e float: The scaled penalty. \n
         """
 
         return self.penalty*ceil(violation)**2
@@ -155,11 +155,11 @@ class Constraint(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 3, ('Spring design needs to specify D, W, and L and '
@@ -193,10 +193,10 @@ class Constraint(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e float: The assessed penalty for constraint violations for
+        @return \\e float: The assessed penalty for constraint violations for
             the specified input. \n
         """
         assert len(u) == 3, ('Spring design needs to specify D, N, and d and '
@@ -251,11 +251,11 @@ class Constraint(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 4, ('Welded Beam design needs to specify 4 '
@@ -307,11 +307,11 @@ class Constraint(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 4, ('Pressure vesseldesign needs to specify 4 '
@@ -348,11 +348,11 @@ class Constraint(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 4, ('MI Pressure vessel design needs to specify 4 '
@@ -393,11 +393,11 @@ class Constraint(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 7, ('Speed reducer design needs to specify 7 '
@@ -440,12 +440,12 @@ class Constraint(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated.
             [x1, x2, x3, y1, y2, y3, y4] \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 7, ('Chemical process design needs to specify 7 '
@@ -473,12 +473,12 @@ class Constraint(object):
         Compares a previously calculated value to a user specifed maximum
         including that maximum.
 
-        @param self: \e pointer \n
+        @param self: \\e pointer \n
             The Constraint pointer. \n
-        @param candidate \e float \n
+        @param candidate \\e float \n
              The calculated value corresponding to a candidate design.\n
 
-        @return \e float: The penalty associated with the candidate design. \n
+        @return \\e float: The penalty associated with the candidate design. \n
         """
         if candidate <= self.constraint:
             return 0
@@ -490,12 +490,12 @@ class Constraint(object):
         Compares a previously calculated value to a user specifed maximum
         excluding that maximum.
 
-        @param self: \e pointer \n
+        @param self: \\e pointer \n
             The Constraint pointer. \n
-        @param candidate \e float \n
+        @param candidate \\e float \n
              The calculated value corresponding to a candidate design.\n
 
-        @return \e float: The penalty associated with the candidate design. \n
+        @return \\e float: The penalty associated with the candidate design. \n
         """
 
         if candidate < self.constraint:
@@ -507,12 +507,12 @@ class Constraint(object):
         """!
         Compares the calculated value to the minimum specified by the user.
 
-        @param self: \e pointer \n
+        @param self: \\e pointer \n
             The Constraint pointer. \n
-        @param candidate \e float \n
+        @param candidate \\e float \n
              The calculated value corresponding to a candidate design.\n
 
-        @return \e float: The penalty associated with the candidate design. \n
+        @return \\e float: The penalty associated with the candidate design. \n
         """
 
         if candidate > self.constraint:

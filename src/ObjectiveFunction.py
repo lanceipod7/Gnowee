@@ -25,6 +25,7 @@ format of the functions currently in the class.
 import numpy as np
 import operator
 
+from functools import reduce
 from math import sqrt, exp, log, cos, pi
 
 #-----------------------------------------------------------------------------#
@@ -44,7 +45,7 @@ class ObjectiveFunction(object):
 
         @param self: <em> ObjectiveFunction pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param method: \e string \n
+        @param method: \\e string \n
             The name of the objective function to evaluate. \n
         @param objective: <em> integer, float, or numpy array </em> \n
             The desired objective associated with the optimization.  The
@@ -97,7 +98,7 @@ class ObjectiveFunction(object):
         """!
         ObjectiveFunction class param print function.
 
-        @param self: \e ObjectiveFunction pointer \n
+        @param self: \\e ObjectiveFunction pointer \n
             The ObjectiveFunction pointer. \n
         """
         return "ObjectiveFunction({}, {})".format(self.func.__name__,
@@ -107,7 +108,7 @@ class ObjectiveFunction(object):
         """!
         Human readable ObjectiveFunction print function.
 
-        @param self: \e ObjectiveFunction pointer \n
+        @param self: \\e ObjectiveFunction pointer \n
             The ObjectiveFunction pointer. \n
         """
 
@@ -120,9 +121,9 @@ class ObjectiveFunction(object):
         """!
         Converts an input string name for a function to a function handle.
 
-        @param self: \e pointer \n
+        @param self: \\e pointer \n
             The ObjectiveFunction pointer. \n
-        @param funcName \e string \n
+        @param funcName \\e string \n
              A string identifying the objective function to be used. \n
         """
         if hasattr(funcName, '__call__'):
@@ -158,11 +159,11 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 3, ('Spring design needs to specify D, W, and L and '
@@ -188,10 +189,10 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e float: The fitness associated with the specified input. \n
+        @return \\e float: The fitness associated with the specified input. \n
         """
         assert len(u) == 3, ('Spring design needs to specify D, N, and d and '
                              'only those 3 parameters.')
@@ -234,11 +235,11 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 4, ('Welded Beam design needs to specify 4 '
@@ -276,11 +277,11 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 4, ('Pressure vesseldesign needs to specify 4 '
@@ -311,11 +312,11 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 4, ('MI Pressure vessel design needs to specify 4 '
@@ -345,11 +346,11 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 7, ('Speed reducer design needs to specify 7 '
@@ -378,12 +379,12 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated.
             [x1, x2, x3, y1, y2, y3, y4] \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 7, ('Chemical process design needs to specify 7 '
@@ -407,11 +408,11 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) >= 1, ('The Ackley Function must have a '
@@ -439,11 +440,11 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) >= 1, ('The Shifted Ackley Function must have a '
@@ -469,11 +470,11 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) >= 1, ('The De Jong Function must have a '
@@ -501,11 +502,11 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) >= 1, ('The Shifted De Jong Function must have a '
@@ -528,11 +529,11 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 2, 'The Easom Function must have a dimension of 2.'
@@ -555,11 +556,11 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) == 2, 'The Easom Function must have a dimension of 2.'
@@ -581,11 +582,11 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) >= 1 and len(u) <= 600, ('The Shifted Griewank Function '
@@ -610,11 +611,11 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
             The design parameters to be evaluated. \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) >= 1 and len(u) <= 600, ('The Shifted Griewank Function '
@@ -636,10 +637,10 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) >= 1, ('The Rastrigin Function must have a '
@@ -664,10 +665,10 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) >= 1, ('The Shifted Rastrigin Function must have a '
@@ -690,10 +691,10 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) >= 1, ('The Rosenbrock Function must have a '
@@ -718,10 +719,10 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
         assert len(u) >= 1, ('The Shifted Rosenbrock Function must have a '
@@ -739,10 +740,10 @@ class ObjectiveFunction(object):
 
         @param self: <em> pointer </em> \n
             The ObjectiveFunction pointer. \n
-        @param u: \e array \n
+        @param u: \\e array \n
 
-        @return \e array: The fitness associated with the specified input. \n
-        @return \e array: The assessed value for each constraint for the
+        @return \\e array: The fitness associated with the specified input. \n
+        @return \\e array: The assessed value for each constraint for the
             specified input. \n
         """
 
@@ -767,6 +768,6 @@ def prod(iterable):
     @param iterable: <em> list or array or generator </em>
         Iterable set to multiply.
 
-    @return \e float: The product of all of the items in iterable
+    @return \\e float: The product of all of the items in iterable
     """
     return reduce(operator.mul, iterable, 1)

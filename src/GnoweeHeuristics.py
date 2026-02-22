@@ -63,46 +63,46 @@ class GnoweeHeuristics(ProblemParameters):
 
         @param self: <em> GnoweeHeuristic pointer </em> \n
             The GnoweeHeuristics pointer. \n
-        @param population: \e integer \n
+        @param population: \\e integer \n
             The number of members in each generation. \n
-        @param initSampling: \e string \n
+        @param initSampling: \\e string \n
             The method used to sample the phase space and create the initial
             population. Valid options are 'random', 'nolh', 'nolh-rp',
             'nolh-cdr', and 'lhc' as specified in init_samples(). \n
-        @param fracMutation : \e float \n
+        @param fracMutation : \\e float \n
             Discovery probability used for the mutate() heuristic. \n
-        @param fracElite: \e float \n
+        @param fracElite: \\e float \n
             Elite fraction probability used for the scatter_search(),
             crossover(), and cont_crossover() heuristics. \n
-        @param fracLevy: \e float \n
+        @param fracLevy: \\e float \n
             Levy flight probability used for the disc_levy_flight() and
             cont_levy_flight() heuristics. \n
-        @param alpha: \e float \n
+        @param alpha: \\e float \n
             Levy exponent - defines the index of the distribution and controls
             scale properties of the stochastic process. \n
-        @param gamma: \e float \n
+        @param gamma: \\e float \n
             Gamma - scale unit of process for Levy flights. \n
-        @param n: \e integer \n
+        @param n: \\e integer \n
             Number of independent variables - can be used to reduce Levy flight
             sampling variance. \n
-        @param penalty: \e float \n
+        @param penalty: \\e float \n
             Individual constraint violation penalty to add to objective
             function. \n
-        @param scalingFactor: \e float \n
+        @param scalingFactor: \\e float \n
             Step size scaling factor used to adjust Levy flights to length scale
             of system. The implementation of the Levy flight sampling makes this
             largely arbitrary. \n
-        @param maxGens: \e integer \n
+        @param maxGens: \\e integer \n
             The maximum number of generations to search. \n
-        @param maxFevals: \e integer \n
+        @param maxFevals: \\e integer \n
             The maximum number of objective function evaluations. \n
-        @param convTol: \e float \n
+        @param convTol: \\e float \n
             The minimum change of the best objective value before the search
             terminates. \n
-        @param stallLimit: \e integer \n
+        @param stallLimit: \\e integer \n
             The maximum number of evaluations to search without an
             improvement. \n
-        @param optConvTol: \e float \n
+        @param optConvTol: \\e float \n
             The maximum deviation from the best know fitness value before the
             search terminates. \n
         @param kwargs: <em> ProblemParameters class arguments </em> \n
@@ -115,26 +115,26 @@ class GnoweeHeuristics(ProblemParameters):
         ProblemParameters.__init__(self, **kwargs)
 
         ## @var population
-        # \e integer:
+        # \\e integer:
         # The number of members in each generation.
         self.population = population
 
         ## @var initSampling
-        # \e string:
+        # \\e string:
         # The method used to sample the phase space and create the initial
         # population. Valid options are 'random', 'nolh', 'nolh-rp',
         #'nolh-cdr', and 'lhc' as specified in init_samples().
         self.initSampling = initSampling
 
         ## @var fracMutation
-        # \e float:
+        # \\e float:
         # Discovery probability used for the mutate() heuristic.
         self.fracMutation = fracMutation
         assert self.fracMutation >= 0 and self.fracMutation <= 1, ('The '
                                  'probability of discovery must exist on (0,1]')
 
         ## @var fracElite
-        # \e float:
+        # \\e float:
         # Elite fraction probability used for the scatter_search(), crossover(),
         # and cont_crossover() heuristics.
         self.fracElite = fracElite
@@ -142,7 +142,7 @@ class GnoweeHeuristics(ProblemParameters):
                                                 'fraction must exist on (0,1]')
 
         ## @var fracLevy
-        # \e float:
+        # \\e float:
         # Levy flight probability used for the disc_levy_flight() and
         # cont_levy_flight() heuristics.
         self.fracLevy = fracLevy
@@ -150,58 +150,58 @@ class GnoweeHeuristics(ProblemParameters):
                         'that a Levy flight is performed must exist on (0,1]')
 
         ## @var alpha
-        # \e float:
+        # \\e float:
         # Levy exponent - defines the index of the distribution and controls
         # scale properties of the stochastic process.
         self.alpha = alpha
 
         ## @var gamma
-        # \e float:
+        # \\e float:
         # Gamma - scale unit of process for Levy flights.
         self.gamma = gamma
 
         ## @var n
-        # \e integer:
+        # \\e integer:
         # Number of independent variables - can be used to reduce Levy flight
         # sampling variance.
         self.n = n
 
         ## @var scalingFactor
-        # \e float:
+        # \\e float:
         # Step size scaling factor used to adjust Levy flights to length scale
         # of system. The implementation of the Levy flight sampling makes this
         # largely arbitrary.
         self.scalingFactor = scalingFactor
 
         ## @var penalty
-        # \e float:
+        # \\e float:
         # Individual constraint violation penalty to add to objective function.
         self.penalty = penalty
 
         ## @var maxGens
-        # \e integer:
+        # \\e integer:
         # The maximum number of generations to search.
         self.maxGens = maxGens
 
         ## @var maxFevals
-        # \e integer:
+        # \\e integer:
         # The maximum number of objective function evaluations.
         self.maxFevals = maxFevals
 
         ## @var convTol
-        # \e float:
+        # \\e float:
         # The minimum change of the best objective value before the search
         # terminates.
         self.convTol = convTol
 
         ## @var stallLimit
-        # \e integer:
+        # \\e integer:
         # The maximum number of gen3rations to search without a descrease
         # exceeding convTol.
         self.stallLimit = stallLimit
 
         ## @var optConvTol
-        # \e float:
+        # \\e float:
         # The maximum deviation from the best know fitness value before the
         # search terminates.
         self.optConvTol = optConvTol
@@ -264,9 +264,9 @@ class GnoweeHeuristics(ProblemParameters):
 
         @param self: <em> GnoweeHeuristic pointer </em> \n
             The GnoweeHeuristics pointer. \n
-        @param numSamples: \e integer \n
+        @param numSamples: \\e integer \n
             The number of samples to be generated. \n
-        @param sampleMethod: \e string \n
+        @param sampleMethod: \\e string \n
             The method used to sample the phase space and create the initial
             population. Valid options are 'random', 'nolh', 'nolh-rp',
             'nolh-cdr', and 'lhc' as specified in init_samples(). \n
@@ -298,9 +298,9 @@ class GnoweeHeuristics(ProblemParameters):
         Generate new children using truncated Levy flights permutation of
         current generation design parameters according to:
 
-        \f$ L_{\alpha,\gamma}=FLOOR(TLF_{\alpha,\gamma}*D(x)), \f$
+        \f$ L_{\alpha,\\gamma}=FLOOR(TLF_{\alpha,\\gamma}*D(x)), \f$
 
-        where \f$ TLF_{\alpha,\gamma} \f$ is calculated in tlf(). Applies
+        where \f$ TLF_{\alpha,\\gamma} \f$ is calculated in tlf(). Applies
         rejection_bounds() to ensure all solutions lie within the design
         space by adapting the step size to the size of the design space.
 
@@ -312,7 +312,7 @@ class GnoweeHeuristics(ProblemParameters):
 
         @return <em> list of arrays: </em>   The proposed children sets of
             design variables representing the updated design parameters.
-        @return \e list: A list of the identities of the chosen index for
+        @return \\e list: A list of the identities of the chosen index for
             each child.
         """
 
@@ -348,9 +348,9 @@ class GnoweeHeuristics(ProblemParameters):
         Generate new children using Levy flights permutation of current
         generation design parameters according to:
 
-        \f$ x_r^{g+1}=x_r^{g}+ \frac{1}{\beta} L_{\alpha,\gamma}, \f$
+        \f$ x_r^{g+1}=x_r^{g}+ \frac{1}{\beta} L_{\alpha,\\gamma}, \f$
 
-        where \f$ L_{\alpha,\gamma} \f$ is calculated in levy() according
+        where \f$ L_{\alpha,\\gamma} \f$ is calculated in levy() according
         to the Mantegna algorithm.  Applies rejection_bounds() to ensure all
         solutions lie within the design space by adapting the step size to
         the size of the design space.
@@ -363,7 +363,7 @@ class GnoweeHeuristics(ProblemParameters):
 
         @return <em> list of arrays: </em>   The proposed children sets of
             design variables representing the updated design parameters.
-        @return \e list: A list of the identities of the chosen index for
+        @return \\e list: A list of the identities of the chosen index for
             each child.
         """
 
@@ -406,7 +406,7 @@ class GnoweeHeuristics(ProblemParameters):
 
         @return <em> list of arrays: </em>   The proposed children sets of
             design variables representing the updated design parameters.
-        @return \e list: A list of the identities of the chosen index for
+        @return \\e list: A list of the identities of the chosen index for
             each child.
         """
 
@@ -479,7 +479,7 @@ class GnoweeHeuristics(ProblemParameters):
 
         @return <em> list of arrays: </em>   The proposed children sets of
             design variables representing the updated design parameters.
-        @return \e list: A list of the identities of the chosen index for
+        @return \\e list: A list of the identities of the chosen index for
             each child.
         """
 
@@ -628,7 +628,7 @@ class GnoweeHeuristics(ProblemParameters):
 
         @return <em> list of arrays: </em>   The proposed children sets of
             design variables representing the updated design parameters.
-        @return \e list: A list of the identities of the chosen index for
+        @return \\e list: A list of the identities of the chosen index for
             each child.
         """
 
@@ -714,7 +714,7 @@ class GnoweeHeuristics(ProblemParameters):
 
         @return <em> list of arrays: </em>   The proposed children sets of
             design variables representing the updated design parameters.
-        @return \e list: A list of the identities of the chosen index for
+        @return \\e list: A list of the identities of the chosen index for
             each child.
         """
 
@@ -754,7 +754,7 @@ class GnoweeHeuristics(ProblemParameters):
 
         @return <em> list of arrays: </em>   The proposed children sets of
             design variables representing the updated design parameters.
-        @return \e list: A list of the identities of the chosen index for
+        @return \\e list: A list of the identities of the chosen index for
             each child.
         """
 
@@ -816,24 +816,24 @@ class GnoweeHeuristics(ProblemParameters):
         @param timeline: <em> list of history objects </em> \n
             The histories of the optimization process containing best design,
             fitness, generation, and function evaluations. \n
-        @param genUpdate: \e integer \n
+        @param genUpdate: \\e integer \n
             Indicator for how many generations to increment the counter by.
             Genenerally 0 or 1. \n
-        @param adoptedParents: \e list \n
+        @param adoptedParents: \\e list \n
             A list of alternative parents to compare the children against.
             This alternative parents are then held accountable for not being
             better than the children of others. \n
-        @param mhFrac: \e float \n
+        @param mhFrac: \\e float \n
             The Metropolis-Hastings fraction.  A fraction of the otherwise
             discarded parents will be evaluated for acceptance against the
             greater population. \n
-        @param randomParents: \e boolean \n
+        @param randomParents: \\e boolean \n
             If True, a random parent will be selected for comparison to the
             children. No one is safe. \n
 
         @return <em> list of parent objects: </em> The current parents
             representing system designs. \n
-        @return \e integer:  The number of replacements made. \n
+        @return \\e integer:  The number of replacements made. \n
         @return <em> list of history objects: </em> If an initial timeline was
             provided, retunrs an updated history of the optimization process
             containing best design, fitness, generation, and function
@@ -958,14 +958,14 @@ def simple_bounds(child, lb, ub):
     Application of problem boundaries to generated solutions. If outside of the
     boundaries, the variable defaults to the boundary.
 
-    @param child: \e array \n
+    @param child: \\e array \n
         The proposed new system designs. \n
-    @param lb: \e array \n
+    @param lb: \\e array \n
         The lower bounds of the design variable(s). \n
-    @param ub: \e array \n
+    @param ub: \\e array \n
         The upper bounds of the design variable(s). \n
 
-    @return \e array: The new system design that is within problem
+    @return \\e array: The new system design that is within problem
         boundaries. \n
     """
 
@@ -993,18 +993,18 @@ def rejection_bounds(parent, child, stepSize, lb, ub):
     Application of problem boundaries to generated solutions. Adjusts step size
     for all rejected solutions until within the boundaries.
 
-    @param parent: \e array \n
+    @param parent: \\e array \n
         The current system designs. \n
-    @param child: \e array \n
+    @param child: \\e array \n
         The proposed new system designs. \n
-    @param stepSize: \e float \n
+    @param stepSize: \\e float \n
         The stepsize for the permutation. \n
-    @param lb: \e array \n
+    @param lb: \\e array \n
         The lower bounds of the design variable(s). \n
-    @param ub: \e array \n
+    @param ub: \\e array \n
         The upper bounds of the design variable(s). \n
 
-    @return \e array: The new system design that is within problem
+    @return \\e array: The new system design that is within problem
         boundaries. \n
     """
 
@@ -1030,12 +1030,12 @@ def contains_sublist(lst, sublst):
     @ingroup GnoweeHeuristics
     Find index of sublist, if it exists.
 
-    @param lst: \e list \n
+    @param lst: \\e list \n
         The list in which to search for sublst. \n
-    @param sublst: \e list \n
+    @param sublst: \\e list \n
         The list to search for. \n
 
-    @return \e integer: Index location of sublst in lst. \n
+    @return \\e integer: Index location of sublst in lst. \n
     """
     for i in range(0, len(lst), 1):
         if sublst == lst[i]:
